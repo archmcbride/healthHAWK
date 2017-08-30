@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <img src="/img/hawk-logo.jpg" width="100" height="auto" class="logo">
+    <div id="app">
+        <!-- <div class="logo">
+        <h1 class="text-center">healthHAWK</h1>
+
+        </div> -->
+        <h2 class="welcome text-center">Welcome, {{user.username}}</h2>
+        </br>
+        </br>
+
+        
+        <h3 class="title">Eating Habits Overview</h3>
+        </br>
+        </br>
+        <div class="container">
+        <div id="canvasContainer" class="row">
+            <div class="col-md-6">
+                <canvas id="theCanvas"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="theCanvas2"></canvas>
+            </div>
+        </div>
+        </div>
+        </br>
+        </br>
+        <h3 class="title">Add Meals</h3>
+        <form v-on:submit="createMeal" class="form">
+            <select v-model="foodObj" options="myOptions" class="formItems">
+                <option v-for="option in myOptions" v-bind:value="option">
+                {{ option.text }}
+                </option>
+
+            </select>
+            <select v-model="mealName" class="formItems">
+                <option>Breakfast</option>
+                <option>Lunch</option>
+                <option>Dinner</option>
+                <option>Snack</option>
+            </select>
+            <input class="roundEdge formItems" v-model="mealDate" type="date" placeholder="Date">
+            <input class="btn btn-sm btn-success formItems" type="submit" value="Submit Your Meal!">
+        </form>
+        </br>
+        </br>
+        <h3 class="title">Overall Meal List</h3>
+        <table class="table table-striped" id="tableClass">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Food</th>
+                    <th>Meal</th>
+                    <th>Calories</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="x in allMeals">
+                    <td>{{x.foodname}} </td>
+                    <td>{{x.mealname}}</td>
+                    <td>{{x.calories}}</td>
+                    <td>{{x.mealdate.toLocaleDateString()}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </br>
+        </br>
+            <h3 class="title"><a href="/future.html">Future Features</a></h3>
+
+        
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

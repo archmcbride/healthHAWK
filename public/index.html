@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="logoArea">
+        <h2 class="logoText">health</h2>
+        <img src="/img/hawk-logo.jpg" width="100" height="auto" class="logo">
+    </div>
+    <div id="app">
+        <h3 class="frontTitle">Create Account</h3>
+        <form class="form" v-on:submit="createUser">
+            <input v-model="newUserName" placeholder="  Name">
+            <input v-model="newUserPassword" placeholder="Password">
+            <input type="submit" value="Submit" class="btn btn-sm btnColor">
+        </form>
+        <h3 class="frontTitle">Login</h3>
+        <form class="form" v-on:submit="signInUser">
+            <input v-model="oldUserName" placeholder="Name">
+            <input v-model="oldUserPassword" placeholder="Password">
+            <input type="submit" value="Login" class="btn btn-sm btnColor">
+        </form> 
+   </div>
+
+<video autoplay id="my-video" class="video" muted loop> 
+  <source src="media/demo.mp4" type="video/mp4">
+  <source src="media/demo.ogv" type="video/ogg">
+  <source src="media/demo.webm" type="video/webm">
+</video><!-- /video from https://coverr.co/-->
+
+<script>
+(function() {
+  /**
+   * Video element
+   * @type {HTMLElement}
+   */
+  var video = document.getElementById("my-video");
+  /**
+   * Check if video can play, and play it
+   * https://coverr.co/
+   */
+  video.addEventListener( "canplay", function() {
+    video.play();
+  });
+})();
+</script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
